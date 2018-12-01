@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Index-search</title>
+  <meta name="description" content="Index-search">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+#chart_container {
+  min-width: 310px;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    {% include 'header.html' %}
+    <br/><br/>
+    <div class="btn-group mt-5 mb-5 d-flex justify-content-center" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-lg btn-primary" onclick="drawBar()">Left</button>
+      <button type="button" class="btn btn-lg btn-primary" onclick="testChart()">Right</button>
+    </div>
+    <div id="chart_container"></div>
+   <!-- Begin page content -->
+  </div>
+ {% include 'footer.html' %}
+</body>
+</html>
