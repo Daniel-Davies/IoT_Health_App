@@ -92,13 +92,13 @@ def heartRate():
     times = [i for i in range(24)]
     avgHeartBeats = [0 for _ in range(24)]    
     heartBeats = person_tracker.get_heart() #dictionary
-    for key in range(24):
-        countHeartBeat, sumHearBeat = 0,0
-        for heartBeat in heartBeats[key]:
-            countHeartBeat += 1
-            sumHearBeat += heartBeat
-        avgHeartBeats[key] = sumHearBeat/countHeartBeat
-    return (times, avgHeartBeats)  
+    for key,val in heartBeats.items():
+    	countHeartBeat, sumHearBeat = 0,0
+    	for hb in val:
+    		countHeartBeat += 1
+    		sumHearBeat += hb
+    	avgHeartBeats[key] = sumHearBeat/countHeartBeat
+    return [times, avgHeartBeats]
 
 
 @app.route('/test')
