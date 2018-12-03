@@ -84,6 +84,21 @@ def today():
         numStepsPerHour[diffInHour] += 1
     return(hours, numStepsPerHour)
 
+#THIS CODE DOESN'T WORK RIGHT NOW, NEED TO MAKE SURE THAT THE DICTIOANRY WORKS WITH THIS THOUGH.
+# def heartRate():
+#     #assuming person has a heartDictionary
+#     # k = 0 - 23
+#     # v = [] <- list of heart beats
+#     times = [i for i in range(24)]
+#     avgHeartBeats = [0 for _ in range(24)]    
+#     heartBeats = person_tracker.get_heartbeat() #dictionary
+#     for key in range(24):
+#         countHeartBeat, sumHearBeat = 0,0
+#         for heartBeat in heartBeats[key]:
+#             countHeartBeat += 1
+#             sumHearBeat += heartBeat
+#         avgHeartBeats[key] = sumHearBeat/countHeartBeat
+#     return (times, avgHeartBeats)    
 
 
 @app.route('/test')
