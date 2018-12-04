@@ -1,4 +1,8 @@
 function testChart(){
+  document.getElementById("chart_container").innerHTML = ""
+  document.getElementById("select_container").innerHTML =""
+
+
   Highcharts.chart('chart_container', {
 
    title: {

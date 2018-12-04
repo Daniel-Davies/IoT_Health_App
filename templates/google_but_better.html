@@ -20,12 +20,11 @@
     {% include 'header.html' %}
     <br/><br/>
     <div class="btn-group mt-5 mb-5 d-flex justify-content-center" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-lg btn-primary" onclick="drawBar()">Left</button>
-      <button type="button" class="btn btn-lg btn-primary" onclick="testChart()">Right</button>
+      <button id="selector1" type="button" class="btn btn-lg btn-primary" onclick="drawBarBase()">Step Counter</button>
+      <button id="selector2" type="button" class="btn btn-lg btn-secondary" onclick="heartChartBase()">Heartbeat Monitor</button>
     </div>
+    <div id="select_container"></div>
     <div id="chart_container"></div>
-   <!-- Begin page content -->
   </div>
  {% include 'footer.html' %}
-</body>
 </html>

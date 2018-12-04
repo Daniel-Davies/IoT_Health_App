@@ -1,18 +1,42 @@
-function drawBar(){
+function newChart(inVal){
+  $.getJSON('/retrieve_steps/'+inVal,
+    function(data) {
+      drawBar(data);
+    });
+}
+
+function drawBarBase(){
+  clearInterval(myTimedVar);
+  document.getElementById("selector1").className = "btn btn-lg btn-primary"
+  document.getElementById("selector2").className = "btn btn-lg btn-secondary"
+  document.getElementById("select_container").innerHTML = `<div class="form-group col-4 offset-4">
+    <label for="exampleFormControlSelect1">Duration</label>
+    <select class="form-control" id="exampleFormControlSelect1" onChange="newChart(this.options[this.selectedIndex].value)">
+      <option value="0">Today</option>
+      <option value="1">Week</option>
+      <option value="2">Month</option>
+    </select>
+  </div>`
+  newChart('0');
+}
+
+function drawBar(data){
+  document.getElementById("chart_container").innerHTML = ""
+
   Highcharts.chart('chart_container', {
     chart: {
       type: 'column'
     },
     title: {
-      text: 'Stacked column chart'
+      text: 'Step analysis'
     },
     xAxis: {
-      categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+      categories:  data[0]
     },
     yAxis: {
       min: 0,
       title: {
-        text: 'Total fruit consumption'
+        text: 'Number of Steps'
       },
       stackLabels: {
         enabled: true,
@@ -47,14 +71,8 @@ function drawBar(){
       }
     },
     series: [{
-      name: 'John',
-      data: [5, 3, 4, 7, 2]
-    }, {
-      name: 'Jane',
-      data: [2, 2, 3, 2, 1]
-    }, {
-      name: 'Joe',
-      data: [3, 4, 4, 2, 5]
+      name: 'Number of Steps',
+      data: data[1]
     }]
   });
 
