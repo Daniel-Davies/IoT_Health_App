@@ -140,6 +140,7 @@ def test():
     weeks = week()
     return render_template("google_but_better.html", data=weeks)
 
+
 @app.route('/retrieve_steps/<int:timeframe>')
 def retrieve_steps(timeframe):
     if (timeframe == 2):
@@ -148,6 +149,7 @@ def retrieve_steps(timeframe):
         return (week())
     else:
         return (today())
+
 
 @app.route('/heart', methods=["POST"])
 def heart_counter():
