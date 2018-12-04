@@ -88,16 +88,12 @@ def today():
 def heartRate():
 	today = datetime.datetime.today()
     times = [0 for _ in range(24)]
-
     for i in range(24):
         prevHour = today - datetime.timedelta(hours = i)
         ampm = 'pm' if (prevHour.hour//12) else 'am'
         hr = prevHour.hour if (prevHour.hour == 12) else prevHour.hour%12
-        hours[i] = str(prevHour.month) + '/' + str(prevHour.day) + ' : ' + str(hr) + ' ' + ampm 
-
-    #assuming person has a heartDictionary
-    # k = 0 - 23
-    # v = [] <- list of heart beats
+	    hr = 12 if (hr == 0) else hr
+    	times[i] = str(hr) + ' ' + ampm
     avgHeartBeats = [0 for _ in range(24)]    
     heartBeats = person_tracker.get_heart() #dictionary
     for key,val in heartBeats.items():
